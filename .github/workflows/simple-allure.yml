@@ -1,4 +1,4 @@
-name: Simple API Tests with Allure
+name: API Tests
 
 on:
   push:
