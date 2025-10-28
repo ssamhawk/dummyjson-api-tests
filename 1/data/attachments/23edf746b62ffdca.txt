@@ -1,0 +1,5 @@
+Title: Red Nail Polish
+Description: The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-dr...
+Price: $8.99
+Category: beauty
+ID: 5
