@@ -174,6 +174,36 @@ The framework covers the following DummyJSON API endpoints:
 
 For more information about the DummyJSON API, visit [https://dummyjson.com/docs](https://dummyjson.com/docs)
 
+## 📊 Allure Reports
+
+### View Reports
+
+**Option 1: GitHub Actions Artifacts**
+- Go to Actions → Latest run → Artifacts section
+- Download `allure-report` and open `index.html`
+
+**Option 2: GitHub Pages (Recommended)**
+- Enable GitHub Pages in repository Settings
+- Use `.github/workflows/test-with-pages.yml`
+- Access reports at: `https://ssamhawk.github.io/dummyjson-api-tests/`
+
+**Option 3: Local**
+```bash
+uv run python tools/run_with_allure.py dummyjson/tests/api/test_assignment.py --open
+```
+
+See [docs/ALLURE_REPORTS.md](docs/ALLURE_REPORTS.md) for detailed guide.
+
+## 🤖 CI/CD
+
+GitHub Actions runs tests automatically:
+- ✅ On every push to main
+- ✅ On pull requests
+- ✅ Daily at 9:00 AM UTC
+- ✅ Manual trigger available
+
+View workflow: `.github/workflows/test.yml`
+
 ## Contributing
 
 1. Fork the repository
