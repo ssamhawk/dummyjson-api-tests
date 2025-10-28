@@ -1,0 +1,6 @@
+INFO     base.api.api_client:api_client.py:25 Request: POST https://dummyjson.com/auth/login, attempt 1
+INFO     httpx:_client.py:1025 HTTP Request: POST https://dummyjson.com/auth/login "HTTP/1.1 200 OK"
+INFO     base.api.api_client:api_client.py:25 Response: POST https://dummyjson.com/auth/login - 200
+INFO     base.api.api_client:api_client.py:25 Request: GET https://dummyjson.com/auth/me, attempt 1
+INFO     httpx:_client.py:1025 HTTP Request: GET https://dummyjson.com/auth/me "HTTP/1.1 200 OK"
+INFO     base.api.api_client:api_client.py:25 Response: GET https://dummyjson.com/auth/me - 200

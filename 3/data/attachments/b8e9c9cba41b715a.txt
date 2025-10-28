@@ -1,0 +1,5 @@
+Title: Essence Mascara Lash Princess
+Description: The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effe...
+Price: $9.99
+Category: beauty
+ID: 1
