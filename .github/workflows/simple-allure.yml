@@ -1,0 +1,94 @@
+name: Simple API Tests with Allure
+
+on:
+  push:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: uv sync
+
+    - name: Run tests
+      run: |
+        uv run pytest dummyjson/tests/api/test_assignment.py -v --alluredir=allure-results
+      continue-on-error: true
+
+    - name: Install Allure
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget
+        wget https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz
+        tar -zxvf allure-2.24.1.tgz
+        sudo mv allure-2.24.1 /opt/allure
+        sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+
+    - name: Generate Allure Report
+      if: always()
+      run: |
+        allure generate allure-results -o allure-report --clean
+
+    - name: Deploy to GitHub Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./allure-report
+        destination_dir: ${{ github.run_number }}
+
+    - name: Update Latest Link
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./allure-report
+        destination_dir: latest
+        keep_files: false
+
+    - name: Upload Allure results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: allure-results/
+
+    - name: Upload Allure report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report
+        path: allure-report/
+
+    - name: Comment PR with report link
+      if: always()
+      run: |
+        echo "## 📊 Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "- **Latest Report:** https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/latest/" >> $GITHUB_STEP_SUMMARY
+        echo "- **This Run (#${{ github.run_number }}):** https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ github.run_number }}/" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Artifacts are also available in the workflow run." >> $GITHUB_STEP_SUMMARY
