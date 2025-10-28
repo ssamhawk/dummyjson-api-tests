@@ -1,0 +1,2 @@
+Successfully verified 5 products
+All products have title, description and valid price
