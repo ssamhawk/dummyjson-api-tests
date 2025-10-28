@@ -1,0 +1,64 @@
+[project]
+name = "dummyjson-api-tests"
+version = "0.1.0"
+description = "API automation testing framework for DummyJSON API with Allure reporting"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+    "pytest>=8.3.2",
+    "allure-pytest>=2.13.2",
+    "python-dotenv>=1.0.1",
+]
+
+[dependency-groups]
+test = ["pytest", "httpx", "allure-pytest"]
+dev = [
+    "ruff>=0.6.2",
+    "pre-commit>=3.7.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["dummyjson/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 140
+extend-exclude = [
+    "*/report/**",
+    "**/__pycache__/**",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle (PEP8)
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort (imports sorting)
+    "UP",  # pyupgrade (modern syntax)
+    "B",   # bugbear (suspicious code design)
+    "SIM", # simplify
+    "PL",  # part of pylint-type checks
+    "RUF", # internal ruff rules
+    "C90", # cyclomatic complexity
+]
+
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
