@@ -1,0 +1,5 @@
+Title: Eyeshadow Palette with Mirror
+Description: The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning...
+Price: $19.99
+Category: beauty
+ID: 2

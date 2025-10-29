@@ -1,0 +1,4 @@
+Search query: laptop
+Total results: 5
+Products returned: 5
+Matching products found: True
