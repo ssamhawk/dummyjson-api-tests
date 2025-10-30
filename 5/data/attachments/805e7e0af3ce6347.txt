@@ -1,0 +1,4 @@
+Search query: iPhone
+Total results: 8
+Products returned: 8
+Matching products found: True

@@ -1,0 +1,4 @@
+Search query: shoes
+Total results: 4
+Products returned: 4
+Matching products found: True
