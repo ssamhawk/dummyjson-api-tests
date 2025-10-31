@@ -1,0 +1,5 @@
+Title: Red Lipstick
+Description: The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy ...
+Price: $12.99
+Category: beauty
+ID: 4

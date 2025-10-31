@@ -1,0 +1,5 @@
+Title: Powder Canister
+Description: The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With...
+Price: $14.99
+Category: beauty
+ID: 3

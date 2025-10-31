@@ -1,0 +1,4 @@
+Search query: watch
+Total results: 11
+Products returned: 10
+Matching products found: True
