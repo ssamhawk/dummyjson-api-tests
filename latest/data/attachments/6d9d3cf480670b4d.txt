@@ -1,6 +1,0 @@
-2025-10-30 09:12:39,510 - INFO - Request: POST https://dummyjson.com/auth/login, attempt 1
-2025-10-30 09:12:39,612 - INFO - HTTP Request: POST https://dummyjson.com/auth/login "HTTP/1.1 200 OK"
-2025-10-30 09:12:39,612 - INFO - Response: POST https://dummyjson.com/auth/login - 200
-2025-10-30 09:12:39,613 - INFO - Request: GET https://dummyjson.com/auth/me, attempt 1
-2025-10-30 09:12:39,665 - INFO - HTTP Request: GET https://dummyjson.com/auth/me "HTTP/1.1 200 OK"
-2025-10-30 09:12:39,666 - INFO - Response: GET https://dummyjson.com/auth/me - 200
