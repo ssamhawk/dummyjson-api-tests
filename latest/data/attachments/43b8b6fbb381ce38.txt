@@ -1,3 +1,0 @@
-2025-10-31 09:12:25,207 - INFO - Request: GET https://dummyjson.com/products?limit=30&skip=0, attempt 1
-2025-10-31 09:12:25,289 - INFO - HTTP Request: GET https://dummyjson.com/products?limit=30&skip=0 "HTTP/1.1 200 OK"
-2025-10-31 09:12:25,289 - INFO - Response: GET https://dummyjson.com/products?limit=30&skip=0 - 200
